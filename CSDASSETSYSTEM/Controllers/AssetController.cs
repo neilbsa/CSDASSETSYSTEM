@@ -54,8 +54,6 @@ namespace CSDASSETSYSTEM.Controllers
             ViewBag.ListOfPerson = persons;
             return View("Asset", asset);
         }
-
-
         public ActionResult AssetDetailsWithViewBagAndModelWithParameter(int? Id, string Name)
         {
             List<Person> persons = new List<Person>() {
