@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+<table class="table table-bordered table-hover table-striped">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            CompanyId
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Department
+        </th>
+    </tr>
+
+    @if (ViewBag.ListOfPerson != null)
+    {
+        foreach (var item in (ViewBag.ListOfPerson as List<CSDASSETSYSTEM.Models.Core.Person>))
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.CompanyID
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Department
+                </td>
+            </tr>
+        }
+    }
+
+
+
+</table>
+
+
