@@ -1,0 +1,35 @@
+﻿@model CSDASSETSYSTEM.Models.Core.Person
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PersonDetails</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>Id:</td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <td>Company Id:</td>
+                <td>@Model.CompanyID</td>
+            </tr>
+            <tr>
+                <td>Department:</td>
+                <td>@Model.Department</td>
+            </tr>
+            </table>
+    </div>
+</body>
+</html>

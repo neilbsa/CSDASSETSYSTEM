@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AssetController.cs" />
+    <Compile Include="Controllers\MarienielController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,6 +170,11 @@
     <Content Include="Views\Asset\Asset.cshtml" />
     <Content Include="Views\Asset\AssetDetailsWithViewBag.cshtml" />
     <Content Include="Views\Asset\AssetDetailsWithViewBagAndModelWithParameter.cshtml" />
+    <Content Include="Views\Marieniel\Index.cshtml" />
+    <Content Include="Views\Marieniel\PersonDetails.cshtml" />
+    <Content Include="Views\Marieniel\PersonDetailsViewBag.cshtml" />
+    <Content Include="Views\Marieniel\DepartmentDetailsViewBagandModel.cshtml" />
+    <Content Include="Views\Marieniel\AssetDetailsViewBagandModelWithParameter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
