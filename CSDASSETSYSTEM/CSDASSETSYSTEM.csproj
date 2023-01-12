@@ -175,6 +175,8 @@
     <Content Include="Views\Marieniel\PersonDetailsViewBag.cshtml" />
     <Content Include="Views\Marieniel\DepartmentDetailsViewBagandModel.cshtml" />
     <Content Include="Views\Marieniel\AssetDetailsViewBagandModelWithParameter.cshtml" />
+    <Content Include="Views\Asset\UserDetails.cshtml" />
+    <Content Include="Views\Asset\PersonListDetailPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,51 @@
+﻿@model CSDASSETSYSTEM.Models.Core.Person
+@{
+    ViewBag.Title = "User Details";
+}
+
+
+
+
+
+<table class=" table table-hover">
+    <tr>
+        <th>
+            Id
+        </th>
+        <td>
+          @Html.DisplayFor(x=>x.Id)
+
+        </td>
+    </tr>
+    <tr>
+        <th>
+            CompanyID
+        </th>
+        <td>
+            @Html.DisplayFor(x => x.CompanyID)
+
+
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Name
+        </th>
+        <td>
+            @Html.DisplayFor(x => x.Name)
+
+
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Department
+        </th>
+        <td>
+            @Html.DisplayFor(x => x.Department)
+        </td>
+    </tr>
+</table>
+
+
+@Html.ActionLink("Back To List", "AssetDetailsWithViewBagAndModelWithParameter")

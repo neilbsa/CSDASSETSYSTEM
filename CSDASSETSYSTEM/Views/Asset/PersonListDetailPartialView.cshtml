@@ -1,0 +1,18 @@
+﻿@model CSDASSETSYSTEM.Models.Core.Person
+<tr>
+    <td>
+        @Model.Id
+    </td>
+    <td>
+        @Model.CompanyID
+    </td>
+    <td>
+        @Model.Name
+    </td>
+    <td>
+        @Model.Department
+    </td>
+    <td>
+        @Html.ActionLink("Details", "UserDetails", "Asset", new { Id = Model.Id }, new { @class = "btn btn-default" })
+    </td>
+</tr>

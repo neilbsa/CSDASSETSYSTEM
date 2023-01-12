@@ -20,26 +20,16 @@
         <th>
             Department
         </th>
+        <th>
+            Actions
+        </th>
     </tr>
 
     @if (ViewBag.ListOfPerson != null)
     {
         foreach (var item in (ViewBag.ListOfPerson as List<CSDASSETSYSTEM.Models.Core.Person>))
         {
-            <tr>
-                <td>
-                    @item.Id
-                </td>
-                <td>
-                    @item.CompanyID
-                </td>
-                <td>
-                    @item.Name
-                </td>
-                <td>
-                    @item.Department
-                </td>
-            </tr>
+                @Html.Partial("PersonListDetailPartialView",item)
         }
     }
 
