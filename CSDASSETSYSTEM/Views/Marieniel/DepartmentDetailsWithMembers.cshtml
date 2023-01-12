@@ -1,0 +1,58 @@
+﻿@model CSDASSETSYSTEM.Models.Core.Department
+
+<html>
+<head>
+
+    <title>DepartmentDetailsWithMembers</title>
+</head>
+<body>
+    <div>
+
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <th scope="col">Department Details</th>
+                    <th scope="col"></th>
+                </tr>
+                <tr>
+                    <td>Department Code</td>
+                    <td>@Model.DepartmentCode</td>
+                </tr>
+                <tr>
+                    <td>Department Name</td>
+                    <td>@Model.DepartmentName</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <hr />
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">CompanyId</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.DeptMembers != null)
+                {
+                    foreach (var mem in (ViewBag.DeptMembers as List<CSDASSETSYSTEM.Models.Core.Person>))
+                    {
+                        @Html.Partial("DepartmentDetailsWithMembersPartialView", mem)
+                    }
+                }
+
+
+            </tbody>
+        </table>
+
+        @Html.ActionLink("BackToList", "ListOfDepartment")
+    </div>
+</body>
+</html>

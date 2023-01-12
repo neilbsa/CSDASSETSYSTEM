@@ -1,0 +1,8 @@
+﻿@model CSDASSETSYSTEM.Models.Core.Department
+
+
+<tr>
+    <td>@Model.DepartmentCode</td>
+    <td>@Model.DepartmentName</td>
+    <td>@Html.ActionLink("Details", "DepartmentDetailsWithMembers", "Marieniel", new { depcode = Model.DepartmentCode},null)</td>
+</tr>

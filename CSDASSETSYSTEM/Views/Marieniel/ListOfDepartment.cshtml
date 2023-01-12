@@ -1,0 +1,37 @@
+﻿@model List<CSDASSETSYSTEM.Models.Core.Department>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+   
+    <title>ListOfDepartment</title>
+</head>
+<body>
+    <div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Department Code</th>
+                    <th scope="col">Department Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var dep in Model)
+                    {
+                        @Html.Partial("ListOfDepartmentPartialView",dep)
+                    }
+                }
+
+
+            </tbody>
+        </table>
+        
+    </div>
+</body>
+</html>

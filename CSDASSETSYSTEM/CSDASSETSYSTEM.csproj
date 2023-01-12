@@ -177,6 +177,11 @@
     <Content Include="Views\Marieniel\AssetDetailsViewBagandModelWithParameter.cshtml" />
     <Content Include="Views\Asset\UserDetails.cshtml" />
     <Content Include="Views\Asset\PersonListDetailPartialView.cshtml" />
+    <Content Include="Views\Marieniel\ListOfDepartment.cshtml" />
+    <Content Include="Views\Marieniel\ListOfDepartmentPartialView.cshtml" />
+    <Content Include="Views\Marieniel\DepartmentDetailsWithMembers.cshtml" />
+    <Content Include="Views\Marieniel\DepartmentDetailsWithMembersPartialView.cshtml" />
+    <Content Include="Views\Marieniel\PersonInformation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

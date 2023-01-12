@@ -9,6 +9,34 @@ namespace CSDASSETSYSTEM.Controllers
 {
     public class MarienielController : Controller
     {
+
+
+        private readonly List<Department> dept = new List<Department>()
+        {
+            new Department(){ DepartmentCode= "CSD", DepartmentName = "COMPUTER" },
+            new Department(){ DepartmentCode= "HR", DepartmentName = "HUMAN RESOURCES" },
+            new Department(){ DepartmentCode= "OTP", DepartmentName = "OFFICE OF THE PRESIDENT" },
+            new Department(){ DepartmentCode= "FINANCE", DepartmentName = "FINANCIALS" },
+
+
+        };
+
+
+        private readonly List<Person> persons = new List<Person>() {
+               new Person(){ Id=1,Department="CSD", CompanyID = "2282", Name = "Bryan" },
+               new Person(){Id=2, Department="FINANCE", CompanyID = "22821", Name = "JErich" },
+               new Person(){Id=3, Department="OTP", CompanyID = "22822", Name = "Marieniel" },
+               new Person(){Id=4, Department="HR", CompanyID = "22823", Name = "Risty" },
+               new Person(){Id=5, Department="HR", CompanyID = "22823", Name = "Reymark" },
+               new Person(){Id=6, Department="HR", CompanyID = "22823", Name = "Jayson" },
+               new Person(){Id=7, Department="HR", CompanyID = "22823", Name = "Jessie" },
+               new Person(){Id=8, Department="HR", CompanyID = "22823", Name = "Tommuel" },
+               new Person(){Id=9, Department="HR", CompanyID = "22823", Name = "Henry" },
+               new Person(){Id=10, Department="HR", CompanyID = "22823", Name = "Ian" },
+               new Person(){Id=11, Department="HR", CompanyID = "22823", Name = "Jon" },
+            };
+
+
         // GET: Marieniel
         public ActionResult Index()
         {
@@ -90,5 +118,34 @@ namespace CSDASSETSYSTEM.Controllers
 
             return View();
         }
+
+
+
+        //========================================================================== ASSIGNMENT 2 : ACTIONLINK AND PARTIAL VIEW
+
+        public ActionResult ListOfDepartment()
+        {
+
+            return View(dept);
+        }
+
+
+        public ActionResult DepartmentDetailsWithMembers(string depcode)
+        {
+            var depdet = dept.Where(x => x.DepartmentCode == depcode).FirstOrDefault();
+            ViewBag.DeptMembers = persons.Where(x => x.Department == depcode).ToList();
+
+            return View(depdet);
+        }
+
+        public ActionResult PersonInformation(int Id)
+        {
+            var per = persons.Where(x => x.Id == Id).FirstOrDefault();
+
+            return View(per);
+        }
+
+
+
     }
 }
