@@ -45,7 +45,14 @@ namespace CSDASSETSYSTEM.Controllers
                 new Department() { Id = 1, DepartmentCode = "CSD", DepartmentName = "Computer Systems Department"},
                 new Department() { Id = 2, DepartmentCode = "MIC", DepartmentName = "Machines Inventory Control"},
                 new Department() { Id = 3, DepartmentCode = "MKTG", DepartmentName = "Marketing"},
-                new Department() { Id = 4, DepartmentCode = "SVC", DepartmentName = "Service"}
+                new Department() { Id = 4, DepartmentCode = "FNC", DepartmentName = "Finance"},
+                new Department() { Id = 5, DepartmentCode = "SCM", DepartmentName = "Supply Chain Management"},
+                new Department() { Id = 6, DepartmentCode = "TS", DepartmentName = "Technical Support"},
+                new Department() { Id = 7, DepartmentCode = "CT", DepartmentName = "Core Team"},
+                new Department() { Id = 8, DepartmentCode = "TM", DepartmentName = "Telematics"},
+                new Department() { Id = 9, DepartmentCode = "IC", DepartmentName = "Inventory Control"},
+                new Department() { Id = 10, DepartmentCode = "WHS", DepartmentName = "Warehouse"},
+                new Department() { Id = 11, DepartmentCode = "SVC", DepartmentName = "Service"}
             };
             return View(dept);
         }
