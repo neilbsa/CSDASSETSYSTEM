@@ -53,7 +53,7 @@ namespace CSDASSETSYSTEM.Controllers
         public ActionResult AssetDetailsViewBagandModelWithParameter(int? id, string name, string type, string model, DateTime? datepurchased, double? price, string serial, int? warranty )
         {
 
-            ViewBag.FilterBy = "filter by: ?id=&name=&type&model=&datepurchased=&price=&serial=&warranty=";
+            ViewBag.FilterBy = "filter by: ?id=&name=&type=&model=&datepurchased=&price=&serial=&warranty=";
             List<Asset> asset = new List<Asset>() {
                 new Asset() { Id = 1, AssetCode = "CSD-1", AssetName = "Lenovo", AssetType="Laptop", model="Apple MacBook Air (M2)", DatePurchased=DateTime.Parse("2023-01-01") , price= 2344, Serial="1410110058",Warranty=2},
                 new Asset() { Id = 2, AssetCode = "CSD-2", AssetName = "Asus", AssetType="Desktop", model="HP Spectre x360 14", DatePurchased=DateTime.Parse("2022-10-01") , price= 2354654, Serial="1410110406",Warranty=6},
