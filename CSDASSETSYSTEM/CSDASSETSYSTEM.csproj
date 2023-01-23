@@ -182,6 +182,8 @@
     <Content Include="Views\Marieniel\DepartmentDetailsWithMembers.cshtml" />
     <Content Include="Views\Marieniel\DepartmentDetailsWithMembersPartialView.cshtml" />
     <Content Include="Views\Marieniel\PersonInformation.cshtml" />
+    <Content Include="Views\Asset\RegistrationForm.cshtml" />
+    <Content Include="Views\Asset\RegistrationFormWithModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

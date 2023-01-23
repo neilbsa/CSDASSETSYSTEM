@@ -1,0 +1,97 @@
+﻿@model CSDASSETSYSTEM.Models.Core.Person
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+
+
+
+<h2>Basic Form With Model</h2>
+
+@using (Html.BeginForm("RegistrationFormWithModel", "Asset", FormMethod.Post, new { Id = "FirstForm" }))
+{
+
+
+
+   
+
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>
+            Name
+        </th>
+        <td>
+            @Html.TextBoxFor(x => x.Name)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Department
+        </th>
+        <td>
+            @Html.TextBoxFor(x => x.Department)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            BirthDay
+        </th>
+        <td>
+            @Html.TextBoxFor(x => x.DateOfBirth, new { type="date" })
+        </td>
+    </tr>
+    <tr>
+        <th>
+            IsAdmin
+        </th>
+        <td>
+            @Html.CheckBoxFor(x => x.IsAdmin)
+        </td>
+    </tr>
+
+    <tr>
+        <th>
+            Gender
+        </th>
+        <td>
+            @*<select name="Gender">
+                <option>
+                    Male
+                </option>
+                <option>
+                    Female
+                </option>
+            </select>*@
+
+
+            @Html.DropDownListFor(x => x.Gender, (ViewBag.GenderOptions as SelectList),"SELECT",null)
+        </td>
+    </tr>
+
+    <tr>
+        <th>
+            Introduction
+        </th>
+        <td>
+            @Html.TextAreaFor(x=>x.BriefIntroduction)
+        </td>
+    </tr>
+
+</table>
+
+
+
+
+    @ViewBag.FullName
+    <input type="submit" value="Submit" />
+
+}
+
+
+
+
+

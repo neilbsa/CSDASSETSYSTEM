@@ -11,6 +11,10 @@ namespace CSDASSETSYSTEM.Models.Core
         public string CompanyID { get; set; }
         public string Name { get; set; }
         public string Department { get; set; }
+        public bool IsAdmin { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Gender { get; set; }
+        public string BriefIntroduction { get; set; }
 
 
     }

@@ -43,6 +43,48 @@ namespace CSDASSETSYSTEM.Controllers
 
 
 
+        public ActionResult RegistrationForm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RegistrationForm(string Name, string LastName)
+        {
+             ViewBag.FullName = String.Format("{0},{1}", Name, LastName);
+            return View();
+        }
+
+
+
+
+        public ActionResult RegistrationFormWithModel()
+        {
+
+
+
+            //       new SelectList(RetrieveBranches(), "Id", "Name", entity.BranchId)
+
+
+            string[] genders = new string[] { "Male", "Female" };
+            ViewBag.GenderOptions = new SelectList(genders);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RegistrationFormWithModel(Person entity)
+        {
+            ViewBag.FullName = String.Format("{0}", entity.Name);
+     
+            return View("UserDetails" , entity);
+        }
+
+
+
+
+   
+
+
         // GET: Asset
         public ActionResult Index()
         {
