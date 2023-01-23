@@ -25,7 +25,7 @@ namespace CSDASSETSYSTEM.Controllers
         private readonly List<Person> persons = new List<Person>() {
                new Person(){ Id=1,Department="CSD", CompanyID = "2282", Name = "Bryan" },
                new Person(){Id=2, Department="FINANCE", CompanyID = "22821", Name = "JErich" },
-               new Person(){Id=3, Department="OTP", CompanyID = "22822", Name = "Marieniel" },
+               new Person(){Id=3, Department="HR", CompanyID = "22822", Name = "Marieniel" },
                new Person(){Id=4, Department="HR", CompanyID = "22823", Name = "Risty" },
                new Person(){Id=5, Department="HR", CompanyID = "22823", Name = "Reymark" },
                new Person(){Id=6, Department="HR", CompanyID = "22823", Name = "Jayson" },
