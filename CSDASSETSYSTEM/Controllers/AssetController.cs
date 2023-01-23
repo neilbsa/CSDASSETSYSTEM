@@ -76,6 +76,11 @@ namespace CSDASSETSYSTEM.Controllers
         {
             ViewBag.FullName = String.Format("{0}", entity.Name);
      
+
+
+            //
+
+
             return View("UserDetails" , entity);
         }
 
