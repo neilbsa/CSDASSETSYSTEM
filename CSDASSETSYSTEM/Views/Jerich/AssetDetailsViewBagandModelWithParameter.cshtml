@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AssetDetailsViewBagandModelWithParameter</title>
+</head>
+<body>
+    <div>
+        @ViewBag.FilterBy
+
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Model</th>
+                <th>Date Purchased</th>
+                <th>Price</th>
+                <th>Serial</th>
+                <th>Warranty</th>
+
+            </tr>
+            @if (ViewBag.ListofAssets != null)
+            {
+                foreach (var asset in (ViewBag.ListofAssets as List<CSDASSETSYSTEM.Models.Core.Asset>))
+                {
+        <tr>
+            <td>@asset.Id</td>
+            <td>@asset.AssetName</td>
+            <td>@asset.AssetType</td>
+            <td>@asset.model</td>
+            <td>@asset.DatePurchased</td>
+            <td>@asset.price</td>
+            <td>@asset.Serial</td>
+            <td>@asset.Warranty</td>
+        </tr>
+                }
+            }
+
+        </table>
+
+    </div>
+</body>
+</html>

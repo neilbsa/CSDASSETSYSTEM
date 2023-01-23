@@ -1,0 +1,68 @@
+﻿@model CSDASSETSYSTEM.ViewModels.DepartmentDetailsAndMember
+<html>
+<head>
+
+    <title>Department Details With Members</title>
+</head>
+<body>
+ 
+
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <th scope="col">Department Details</th>
+                    <th scope="col"></th>
+                </tr>
+                <tr>
+                    <td>Department ID</td>
+                    <td>@Model.DepartmentDetails.Id</td>
+                </tr>
+                <tr>
+                    <td>Department Name</td>
+                    <td>@Model.DepartmentDetails.DepartmentCode</td>
+                </tr>
+                <tr>
+                    <td>Department Department Name</td>
+                    <td>@Model.DepartmentDetails.DepartmentName</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <hr />
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">CompanyId</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.PersonDetails != null)
+                {
+                    foreach (var per in Model.PersonDetails)
+                    {
+                    <tr>
+                        <td>@per.CompanyID</td>
+                        <td>@per.Department</td>
+                        <td>@per.CompanyID</td>
+                        <td>@per.Name</td>
+                        <td>@Html.ActionLink("Details","PersonInDetails", "Jerich", new { Id = per.Id },null)</td>
+                    </tr>
+                      
+                    }
+                }
+
+
+            </tbody>
+        </table>
+
+        @Html.ActionLink("BackToList", "ListOfDepartment")
+    
+</body>
+</html>

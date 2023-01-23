@@ -1,0 +1,27 @@
+﻿@model CSDASSETSYSTEM.Models.Core.Person
+@{
+    ViewBag.Title = "PersonInDetails";
+}
+
+<h2>PersonInDetails</h2>
+
+<table class="table table-hover">
+    <tbody>
+        <tr>
+            <th scope="col">Person Details</th>
+            <th scope="col"></th>
+        </tr>
+        <tr>
+            <td>Department ID</td>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <td>Department Name</td>
+            <td>@Model.Department</td>
+        </tr>
+        <tr>
+            <td> Name</td>
+            <td>@Model.Name</td>
+        </tr>
+    </tbody>
+</table>

@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AssetController.cs" />
+    <Compile Include="Controllers\JerichController.cs" />
     <Compile Include="Controllers\MarienielController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -129,6 +130,7 @@
     <Compile Include="Models\Core\Department.cs" />
     <Compile Include="Models\Core\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DepartmentDetailsAndMember.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -184,6 +186,13 @@
     <Content Include="Views\Marieniel\PersonInformation.cshtml" />
     <Content Include="Views\Asset\RegistrationForm.cshtml" />
     <Content Include="Views\Asset\RegistrationFormWithModel.cshtml" />
+    <Content Include="Views\Jerich\DepartmentDetailsWithMember.cshtml" />
+    <Content Include="Views\Jerich\AssetDetailsViewBagandModelWithParameter.cshtml" />
+    <Content Include="Views\Jerich\DepartmentDetailsViewBagandModel.cshtml" />
+    <Content Include="Views\Jerich\DepartmentDetailsWithMembersPartialView.cshtml" />
+    <Content Include="Views\Jerich\Index.cshtml" />
+    <Content Include="Views\Jerich\ListofDepartment.cshtml" />
+    <Content Include="Views\Jerich\PersonInDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
