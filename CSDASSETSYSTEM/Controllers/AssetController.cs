@@ -75,13 +75,17 @@ namespace CSDASSETSYSTEM.Controllers
         public ActionResult RegistrationFormWithModel(Person entity)
         {
             ViewBag.FullName = String.Format("{0}", entity.Name);
-     
 
 
-            //
-
-
-            return View("UserDetails" , entity);
+            if (entity.IsAdmin)
+            {
+                return RedirectToAction("AdminPage");
+            }
+            else
+            {
+                return RedirectToAction("UserPAge");
+            }
+           
         }
 
 
