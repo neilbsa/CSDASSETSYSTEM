@@ -5,9 +5,28 @@
 
 <html>
 <head>
-   
+
     <title>ListOfDepartment</title>
 </head>
+<br />
+
+
+@*=============================search bar assignment 3*@
+@using (Html.BeginForm("ListOfDepartmentSeach", "Marieniel", FormMethod.Post))
+{
+    <tr>
+        <th>
+            @Html.TextBox("SearchDetails")
+        </th>
+        <td>
+            <input type="submit" value="Search" />
+        </td>
+    </tr>
+
+    
+}
+
+@*===============================end search bar*@
 <body>
     <div>
 
@@ -24,14 +43,14 @@
                 {
                     foreach (var dep in Model)
                     {
-                        @Html.Partial("ListOfDepartmentPartialView",dep)
+                        @Html.Partial("ListOfDepartmentPartialView", dep)
                     }
                 }
 
 
             </tbody>
         </table>
-        
+
     </div>
 </body>
 </html>
