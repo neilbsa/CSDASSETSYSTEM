@@ -13,7 +13,7 @@ namespace CSDASSETSYSTEM.Controllers
 
         private readonly List<Department> dept = new List<Department>()
         {
-            new Department(){Id=1, DepartmentCode= "CSD", DepartmentName = "COMPUTER" },
+            new Department(){Id=1, DepartmentCode= "CSD", DepartmentName = "COMPUTER"  },
             new Department(){Id=2, DepartmentCode= "HR", DepartmentName = "HUMAN RESOURCES" },
             new Department(){Id=3, DepartmentCode= "OTP", DepartmentName = "OFFICE OF THE PRESIDENT" },
             new Department(){Id=4, DepartmentCode= "FINANCE", DepartmentName = "FINANCIALS" },
@@ -36,6 +36,7 @@ namespace CSDASSETSYSTEM.Controllers
                new Person(){Id=11, Department="HR", CompanyID = "22823", Name = "Jon" },
             };
 
+     
 
 
 
@@ -151,6 +152,61 @@ namespace CSDASSETSYSTEM.Controllers
         }
 
 
+
+        private readonly IEnumerable<User> user = new List<User>()
+        {
+            new User(){Id=1, Name= "CSD", Username = "admin" , Password="12345",IsAdministrator =true },
+            new User(){Id=2, Name= "HR", Username = "HUMAN" , Password="54321",IsAdministrator =true},
+            new User(){Id=3, Name= "OTP", Username = "OFFICE",  Password="harhar"},
+            new User(){Id=4, Name= "FINANCE", Username = "FINANCIALS",  Password="haha"},
+
+
+        };
+
+        public ActionResult Login ()
+        {
+
+            return View();
+        }
+
+
+
+
+        [HttpPost]
+        public ActionResult Login(User log)
+        {
+            var People = user.Where(x => x.Username.ToUpper() == log.Username.ToUpper() && x.Password == log.Password )
+                .FirstOrDefault();
+
+
+            if (People.IsAdministrator )
+
+            {
+                return RedirectToAction("AdminPage");
+            }
+
+            else
+            {
+                return RedirectToAction("UserPage"); 
+            }
+          
+          
+
+
+         
+
+      
+        }
+        public ActionResult AdminPage()
+        {
+
+            return View();
+        }
+        public ActionResult UserPage()
+        {
+
+            return View();
+        }
 
     }
 }

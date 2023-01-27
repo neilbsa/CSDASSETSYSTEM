@@ -16,6 +16,8 @@ namespace CSDASSETSYSTEM.Models.Core
         public string Gender { get; set; }
         public string BriefIntroduction { get; set; }
 
+    
+
 
     }
 }
