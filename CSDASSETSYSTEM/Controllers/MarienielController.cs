@@ -17,6 +17,16 @@ namespace CSDASSETSYSTEM.Controllers
             new Department(){ DepartmentCode= "HR", DepartmentName = "HUMAN RESOURCES" },
             new Department(){ DepartmentCode= "OTP", DepartmentName = "OFFICE OF THE PRESIDENT" },
             new Department(){ DepartmentCode= "FINANCE", DepartmentName = "FINANCIALS" },
+            new Department(){ DepartmentCode= "SVC", DepartmentName = "FINANCIALS" },
+            new Department(){ DepartmentCode = "MIC", DepartmentName = "Machines Inventory Control"},
+            new Department(){ DepartmentCode = "MKTG", DepartmentName = "Marketing"},
+            new Department(){ DepartmentCode = "FNC", DepartmentName = "Finance"},
+            new Department(){ DepartmentCode = "SCM", DepartmentName = "Supply Chain Management"},
+            new Department(){ DepartmentCode = "TS", DepartmentName = "Technical Support"},
+            new Department(){ DepartmentCode = "CT", DepartmentName = "Core Team"},
+            new Department(){ DepartmentCode = "TM", DepartmentName = "Telematics"},
+            new Department(){ DepartmentCode = "IC", DepartmentName = "Inventory Control"},
+            new Department(){ DepartmentCode = "WHS", DepartmentName = "Warehouse"}
 
 
         };
@@ -145,7 +155,15 @@ namespace CSDASSETSYSTEM.Controllers
             return View(per);
         }
 
+        //========================================================================== ASSIGNMENT 3 : POST
 
+        [HttpPost]
+        public ActionResult ListOfDepartmentSeach(string SearchDetails)
+        {
+            var filtereddept = dept.Where(x => SearchDetails == null || SearchDetails.Count() == 0 || x.DepartmentName.ToUpper().Contains(SearchDetails.ToUpper())).ToList();
+
+            return View("ListOfDepartment", filtereddept);
+        }
 
     }
 }
