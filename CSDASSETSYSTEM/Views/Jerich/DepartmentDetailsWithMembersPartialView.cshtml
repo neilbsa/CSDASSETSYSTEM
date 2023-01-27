@@ -1,0 +1,11 @@
+﻿
+@model CSDASSETSYSTEM.Models.Core.Person
+
+
+<tr>
+    <td>@Model.Id</td>
+    <td>@Model.Department</td>
+    <td>@Model.CompanyID</td>
+    <td>@Model.Name</td>
+    <td>@Html.ActionLink("Details", "PersonInformation", "Marieniel", new { Id = Model.Id },null)</td>
+</tr>

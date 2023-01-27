@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AssetController.cs" />
+    <Compile Include="Controllers\JerichController.cs" />
     <Compile Include="Controllers\MarienielController.cs" />
     <Compile Include="Data\AppDbContextcs.cs" />
     <Compile Include="Global.asax.cs">
@@ -170,7 +171,9 @@
     <Compile Include="Models\Core\Department.cs" />
     <Compile Include="Models\Core\ManyToMany.cs" />
     <Compile Include="Models\Core\Person.cs" />
+    <Compile Include="Models\Core\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DepartmentDetailsAndMember.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -226,6 +229,16 @@
     <Content Include="Views\Marieniel\PersonInformation.cshtml" />
     <Content Include="Views\Asset\RegistrationForm.cshtml" />
     <Content Include="Views\Asset\RegistrationFormWithModel.cshtml" />
+    <Content Include="Views\Jerich\DepartmentDetailsWithMember.cshtml" />
+    <Content Include="Views\Jerich\AssetDetailsViewBagandModelWithParameter.cshtml" />
+    <Content Include="Views\Jerich\DepartmentDetailsViewBagandModel.cshtml" />
+    <Content Include="Views\Jerich\DepartmentDetailsWithMembersPartialView.cshtml" />
+    <Content Include="Views\Jerich\Index.cshtml" />
+    <Content Include="Views\Jerich\ListofDepartment.cshtml" />
+    <Content Include="Views\Jerich\PersonInDetails.cshtml" />
+    <Content Include="Views\Jerich\Login.cshtml" />
+    <Content Include="Views\Jerich\AdminPage.cshtml" />
+    <Content Include="Views\Jerich\UserPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

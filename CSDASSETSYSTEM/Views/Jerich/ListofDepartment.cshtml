@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "ListofDepartment";
+}
+
+<h2>List of Department</h2>
+
+<body>
+    <div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Department Code</th>
+                    <th scope="col">Department Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var i in Model)
+                    {
+
+                        <tr>
+                            <td>@i.DepartmentCode</td>
+                            <td>@i.DepartmentName</td>
+                            <td>@Html.ActionLink("Details", "DepartmentDetailsWithMember", "Jerich", new { Id = i.Id }, null)</td>
+                        </tr>
+
+                    }
+                }
+
+
+            </tbody>
+        </table>
+
+    </div>
+</body>

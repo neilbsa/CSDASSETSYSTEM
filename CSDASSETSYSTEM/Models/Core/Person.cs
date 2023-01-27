@@ -26,6 +26,8 @@ namespace CSDASSETSYSTEM.Models.Core
         public virtual Department DepartmentDetails { get; set; }
         
 
+    
+
 
         
         //one to one

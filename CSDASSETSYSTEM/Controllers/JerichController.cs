@@ -1,32 +1,22 @@
-﻿using CSDASSETSYSTEM.Models.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CSDASSETSYSTEM.Models.Core;
+using CSDASSETSYSTEM.ViewModels;
 
 namespace CSDASSETSYSTEM.Controllers
 {
-    public class MarienielController : Controller
+    public class JerichController : Controller
     {
-
 
         private readonly List<Department> dept = new List<Department>()
         {
-            new Department(){ DepartmentCode= "CSD", DepartmentName = "COMPUTER" },
-            new Department(){ DepartmentCode= "HR", DepartmentName = "HUMAN RESOURCES" },
-            new Department(){ DepartmentCode= "OTP", DepartmentName = "OFFICE OF THE PRESIDENT" },
-            new Department(){ DepartmentCode= "FINANCE", DepartmentName = "FINANCIALS" },
-            new Department(){ DepartmentCode= "SVC", DepartmentName = "FINANCIALS" },
-            new Department(){ DepartmentCode = "MIC", DepartmentName = "Machines Inventory Control"},
-            new Department(){ DepartmentCode = "MKTG", DepartmentName = "Marketing"},
-            new Department(){ DepartmentCode = "FNC", DepartmentName = "Finance"},
-            new Department(){ DepartmentCode = "SCM", DepartmentName = "Supply Chain Management"},
-            new Department(){ DepartmentCode = "TS", DepartmentName = "Technical Support"},
-            new Department(){ DepartmentCode = "CT", DepartmentName = "Core Team"},
-            new Department(){ DepartmentCode = "TM", DepartmentName = "Telematics"},
-            new Department(){ DepartmentCode = "IC", DepartmentName = "Inventory Control"},
-            new Department(){ DepartmentCode = "WHS", DepartmentName = "Warehouse"}
+            new Department(){Id=1, DepartmentCode= "CSD", DepartmentName = "COMPUTER"  },
+            new Department(){Id=2, DepartmentCode= "HR", DepartmentName = "HUMAN RESOURCES" },
+            new Department(){Id=3, DepartmentCode= "OTP", DepartmentName = "OFFICE OF THE PRESIDENT" },
+            new Department(){Id=4, DepartmentCode= "FINANCE", DepartmentName = "FINANCIALS" },
 
 
         };
@@ -46,8 +36,11 @@ namespace CSDASSETSYSTEM.Controllers
                new Person(){Id=11, Department="HR", CompanyID = "22823", Name = "Jon" },
             };
 
+     
 
-        // GET: Marieniel
+
+
+        // GET: Jerich
         public ActionResult Index()
         {
             return View();
@@ -60,13 +53,13 @@ namespace CSDASSETSYSTEM.Controllers
 
         public ActionResult PersonDetails()
         {
-            Person per = new Person() { Id = 1, Name = "Marinel", CompanyID="2525", Department="CSD" };
+            Person per = new Person() { Id = 1, Name = "Marinel", CompanyID = "2525", Department = "CSD" };
             return View(per);
         }
 
         public ActionResult PersonDetailsViewBag()
         {
-          
+
             ViewBag.Id = 1;
             ViewBag.Name = "Marinel";
             ViewBag.CompanyId = 2525;
@@ -79,7 +72,7 @@ namespace CSDASSETSYSTEM.Controllers
         {
 
             ViewBag.WelcomeMessage = "Hello! Good Day";
-            List<Department> dept = new List<Department>() { 
+            List<Department> dept = new List<Department>() {
                 new Department() { Id = 1, DepartmentCode = "CSD", DepartmentName = "Computer Systems Department"},
                 new Department() { Id = 2, DepartmentCode = "MIC", DepartmentName = "Machines Inventory Control"},
                 new Department() { Id = 3, DepartmentCode = "MKTG", DepartmentName = "Marketing"},
@@ -95,7 +88,7 @@ namespace CSDASSETSYSTEM.Controllers
             return View(dept);
         }
 
-        public ActionResult AssetDetailsViewBagandModelWithParameter(int? id, string name, string type, string model, DateTime? datepurchased, double? price, string serial, int? warranty )
+        public ActionResult AssetDetailsViewBagandModelWithParameter(int? id, string name, string type, string model, DateTime? datepurchased, double? price, string serial, int? warranty)
         {
 
             ViewBag.FilterBy = "filter by: ?id=&name=&type=&model=&datepurchased=&price=&serial=&warranty=";
@@ -129,40 +122,90 @@ namespace CSDASSETSYSTEM.Controllers
             return View();
         }
 
-
-
-        //========================================================================== ASSIGNMENT 2 : ACTIONLINK AND PARTIAL VIEW
-
-        public ActionResult ListOfDepartment()
+        public ActionResult ListofDepartment ()
         {
 
             return View(dept);
         }
 
-
-        public ActionResult DepartmentDetailsWithMembers(string depcode)
+        public ActionResult DepartmentDetailsWithMember(int Id)
         {
-            var depdet = dept.Where(x => x.DepartmentCode == depcode).FirstOrDefault();
-            ViewBag.DeptMembers = persons.Where(x => x.Department == depcode).ToList();
+            var deptDetails = dept.Where(d => d.Id == Id ).SingleOrDefault();
 
-            return View(depdet);
+            var personDetails = persons.Where(c => c.Department == deptDetails.DepartmentCode).ToList();
+
+            var viewModel = new DepartmentDetailsAndMember
+            {
+                DepartmentDetails =deptDetails,
+                PersonDetails = personDetails,
+            };
+
+            return View(viewModel);
         }
 
-        public ActionResult PersonInformation(int Id)
+
+        public ActionResult PersonInDetails(int Id)
         {
-            var per = persons.Where(x => x.Id == Id).FirstOrDefault();
+            var per = persons.Where(c => c.Id ==Id).SingleOrDefault();  
 
             return View(per);
         }
 
-        //========================================================================== ASSIGNMENT 3 : POST
+
+
+        private readonly IEnumerable<User> user = new List<User>()
+        {
+            new User(){Id=1, Name= "CSD", Username = "admin" , Password="12345",IsAdministrator =true },
+            new User(){Id=2, Name= "HR", Username = "HUMAN" , Password="54321",IsAdministrator =true},
+            new User(){Id=3, Name= "OTP", Username = "OFFICE",  Password="harhar"},
+            new User(){Id=4, Name= "FINANCE", Username = "FINANCIALS",  Password="haha"},
+
+
+        };
+
+        public ActionResult Login ()
+        {
+
+            return View();
+        }
+
+
+
 
         [HttpPost]
-        public ActionResult ListOfDepartmentSeach(string SearchDetails)
+        public ActionResult Login(User log)
         {
-            var filtereddept = dept.Where(x => SearchDetails == null || SearchDetails.Count() == 0 || x.DepartmentName.ToUpper().Contains(SearchDetails.ToUpper())).ToList();
+            var People = user.Where(x => x.Username.ToUpper() == log.Username.ToUpper() && x.Password == log.Password )
+                .FirstOrDefault();
 
-            return View("ListOfDepartment", filtereddept);
+
+            if (People.IsAdministrator )
+
+            {
+                return RedirectToAction("AdminPage");
+            }
+
+            else
+            {
+                return RedirectToAction("UserPage"); 
+            }
+          
+          
+
+
+         
+
+      
+        }
+        public ActionResult AdminPage()
+        {
+
+            return View();
+        }
+        public ActionResult UserPage()
+        {
+
+            return View();
         }
 
     }
