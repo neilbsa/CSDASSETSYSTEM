@@ -11,6 +11,6 @@ namespace CSDASSETSYSTEM.Models.Core
         public string DepartmentName { get; set; }
         public string DepartmentCode { get; set; }
 
-
+        public virtual  List<Person> DepartmentMembers { get; set; }
     }
 }
