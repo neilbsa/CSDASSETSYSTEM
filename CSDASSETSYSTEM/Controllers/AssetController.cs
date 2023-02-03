@@ -1,4 +1,5 @@
-﻿using CSDASSETSYSTEM.Models.Core;
+﻿using CSDASSETSYSTEM.Data.context;
+using CSDASSETSYSTEM.Models.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,6 +76,7 @@ namespace CSDASSETSYSTEM.Controllers
         public ActionResult RegistrationFormWithModel(Person entity)
         {
             ViewBag.FullName = String.Format("{0}", entity.Name);
+
 
 
             if (entity.IsAdmin)
@@ -167,6 +169,118 @@ namespace CSDASSETSYSTEM.Controllers
 
 
 
+
+
+
+
+
+
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+
+
+        [HttpPost]
+        public ActionResult Create(Person entity)
+        {
+
+            using (AppDbContext context = new AppDbContext())
+            {
+                context.Persons.Add(entity);
+
+                context.SaveChanges();
+            }
+                return View();
+        }
+
+
+
+        public ActionResult Details(int Id)
+        {
+            using (AppDbContext context = new AppDbContext())
+            {
+                var personDetail = context.Persons.Find(Id);
+
+                return View(personDetail);
+            }
+        }
+
+
+
+
+        [HttpGet]
+        public ActionResult Update(int Id)
+        {
+            using (AppDbContext context = new AppDbContext())
+            {
+                var personDetail = context.Persons.Find(Id);
+
+                return View(personDetail);
+            }
+        }
+
+
+
+        [HttpPost]
+        public ActionResult Update(Person entity)
+        {
+            using (AppDbContext context = new AppDbContext())
+            {
+                var forupdateEntity = context.Persons.Find(entity.Id);
+
+
+
+                forupdateEntity.Gender = entity.Gender;
+                forupdateEntity.AddressDetails = entity.AddressDetails;
+                //lahat ng gusto mong i update andito dpaat bago mag save changes
+                context.SaveChanges();
+
+
+                return RedirectToAction("Details", new { Id = forupdateEntity.Id });
+            }
+        }
+
+
+
+
+
+
+        public ActionResult Delete(int Id)
+        {
+            using (AppDbContext context = new AppDbContext())
+            {
+                var personDetail = context.Persons.Find(Id);
+                ViewBag.Message = "Are you sure you want to delete";
+                return View(personDetail);
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult DeleteConfirmed(int Id)
+        {
+            using (AppDbContext context = new AppDbContext())
+            {
+                var personDetail = context.Persons.Find(Id);
+                
+
+                if(personDetail != null)
+                {
+                    context.Persons.Remove(personDetail);
+                    context.SaveChanges();
+                    return View(personDetail);
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+               
+            }
+        }
 
 
 
